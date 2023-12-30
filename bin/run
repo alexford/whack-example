@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+RubyVM::YJIT.enable
+
+#require 'ruby2d'
+require 'pry'
+require 'stackprof'
+
+# TODO: better require'ing
+require_relative '../game.rb'
+require_relative '../lib/bout.rb'
+
+#StackProf.run(mode: :cpu, raw: true, out: 'tmp/stackprof.dump') do
+  run Game
+#end
