@@ -1,22 +1,6 @@
 module Whack::RunnerHelpers
-  def mono_time
-    Process.clock_gettime(Process::CLOCK_MONOTONIC)
-  end
+  include Whack::Utils
 
-  def record_game_time(time)
-    @last_game_times ||= []
-
-    @last_game_times << time
-    @last_game_times = @last_game_times.last(100)
-  end
-
-  # Moving average time it takes to hear back from the game
-  def average_game_time
-    # don't guess until we have enough data points
-    return 0.0 if @last_game_times.size < 50
-
-    @last_game_times.sum(0.0) / @last_game_times.size
-  end
 
   def record_update_time(time)
     @last_update_times ||= []

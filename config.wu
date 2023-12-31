@@ -1,3 +1,5 @@
 require_relative './game.rb'
 
+use Whack::Stats
+
 run Game

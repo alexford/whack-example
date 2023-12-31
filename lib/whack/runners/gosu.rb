@@ -34,7 +34,7 @@ module Whack
         @runner = runner
         @down_keys = []
         super runner.env[:window][:width], runner.env[:window][:height]
-        self.caption = @runner.game.name
+        self.caption = "Whack Gosu" # TODO: config game name
       end
 
       def update
@@ -44,14 +44,17 @@ module Whack
       def draw
         update_start = runner.mono_time
 
-        runner.game_objects&.each do |object|
-          object.draw
-        rescue => e
-          puts e
+        runner.layers&.each do |layer|
+          layer&.each do |object|
+            object.draw
+          rescue => e
+            puts e
+          end
+          Gosu.flush
         end
 
         runner.record_update_time(runner.mono_time - update_start)
-        render_debug_text
+        #render_debug_text
 
         runner.frame += 1
       end

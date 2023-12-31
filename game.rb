@@ -57,10 +57,15 @@ class Game
     end
   end
 
+  def self.call(env)
+    @instance ||= self.new(env)
+    @instance.call(env)
+  end
+
   def initialize(env)
     @counter = 0
     @last_updated = 0
-    @objects = Array.new(100).map! { new_star(env) }
+    @objects = Array.new(1000).map! { new_star(env) }
   end
 
   def new_star(env)
@@ -77,11 +82,11 @@ class Game
     @elapsed = env[:clock] - @last_updated
     @last_updated = env[:clock]
 
-    #if env[:input][:keys].any?
-    # if @elapsed > 0.0
-    #   @objects.prepend new_star(env)
-    # end
-    #end
+    if env[:input][:keys].any?
+      if @elapsed > 0.0
+        @objects.prepend new_star(env)
+      end
+    end
 
     @objects.map! do |star|
       (star.remaining_lifetime > 0 ? star : new_star(env)).tap do |star_to_move|
@@ -89,7 +94,7 @@ class Game
       end
     end
 
-    # [state, objects]
-    [{ counter: @counter }, @objects]
+    # [state, [layers]]
+    [{ counter: @counter }, [@objects]]
   end
 end

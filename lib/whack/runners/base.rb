@@ -5,16 +5,16 @@ module Whack
     include RunnerHelpers
 
     attr_accessor :clock, :frame
-    attr_reader :game, :start, :game_objects
+    attr_reader :game, :start, :layers
 
-    def initialize(game_klass, base_env = {})
+    def initialize(game, base_env = {})
       @base_env = base_env
-      @game = game_klass.new(env)
+      @game = game
       @start = 0
       @clock = 0
       @frame = 0
-      @game_objects = []
-      @game_state = {}
+      @layers = []
+      @state = {}
       @down_keys = []
     end
 
@@ -38,10 +38,7 @@ module Whack
     def call_game!
       game_call_start = mono_time
       @clock = game_call_start - @start
-
-      @game_state, @game_objects = @game.call(env)
-
-      record_game_time(mono_time - game_call_start)
+      @state, @layers = @game.call(env)
     end
 
     def env
