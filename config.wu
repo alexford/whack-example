@@ -1,3 +1,5 @@
+RubyVM::YJIT.enable
+
 require_relative './game.rb'
 
 use Whack::Stats
