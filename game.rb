@@ -40,20 +40,10 @@ class Game
       if @x < 0
         @x = max_x
       end
-
-      sprite.x = @x
-      sprite.y = @y
-      sprite.w = @sprite.h = @size
     end
 
     def draw
-      sprite.draw
-    end
-
-    private
-
-    def sprite
-      @sprite ||= Whack::Objects::Rectangle.new(@x, @y, @size, @size)
+      Whack::Objects::RectangleVectors.new(@x, @y, @size, @size).draw
     end
   end
 
@@ -65,7 +55,7 @@ class Game
   def initialize(env)
     @counter = 0
     @last_updated = 0
-    @objects = Array.new(1000).map! { new_star(env) }
+    @objects = Array.new(1_000).map! { new_star(env) }
   end
 
   def new_star(env)
