@@ -1,7 +1,7 @@
 require_relative './base.rb'
 
-class Bout
-  class Objects::Rectangle < Bout::Objects::Base
+class Whack
+  class Objects::Rectangle < Whack::Objects::Base
     attr_accessor :x, :y, :w, :h
 
     def initialize(x, y, w, h, color = Gosu::Color::WHITE)

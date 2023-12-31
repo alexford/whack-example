@@ -3,7 +3,7 @@
 
 require 'ruby2d'
 
-class Bout
+class Whack
   class Runners::Ruby2d
 
     def initialize(game, base_env = {})
@@ -47,7 +47,7 @@ class Bout
     end
 
     def initialize_window!
-      window.set title: 'Bout POC' # TODO from config
+      window.set title: 'Whack POC' # TODO from config
       window.set background: 'blue'
 
       # All this stuff comes from ruby2d

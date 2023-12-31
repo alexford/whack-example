@@ -1,4 +1,4 @@
-module Bout::RunnerHelpers
+module Whack::RunnerHelpers
   def mono_time
     Process.clock_gettime(Process::CLOCK_MONOTONIC)
   end

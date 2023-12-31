@@ -1,6 +1,6 @@
 require 'gosu'
 
-class Bout
+class Whack
   class Objects::Base
     attr_accessor :x, :y
 

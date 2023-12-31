@@ -53,7 +53,7 @@ class Game
     private
 
     def sprite
-      @sprite ||= Bout::Objects::Rectangle.new(@x, @y, @size, @size)
+      @sprite ||= Whack::Objects::Rectangle.new(@x, @y, @size, @size)
     end
   end
 
@@ -69,7 +69,7 @@ class Game
   end
 
   def name
-    "Bout POC"
+    "Whack POC"
   end
 
   def call(env)

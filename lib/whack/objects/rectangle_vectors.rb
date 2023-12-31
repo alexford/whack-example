@@ -1,7 +1,7 @@
 require_relative './rectangle.rb'
 
-class Bout
-  class Objects::RectangleVectors < Bout::Objects::Rectangle
+class Whack
+  class Objects::RectangleVectors < Whack::Objects::Rectangle
 
     def initialize(*args)
       super(*args)

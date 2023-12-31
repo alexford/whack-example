@@ -1,20 +1,20 @@
 # TODO: zeitwerk or something
-class Bout
+class Whack
   class Runners
   end
 end
 
-class Bout
+class Whack
   class Objects
   end
 end
 
-require_relative 'bout/runners/gosu.rb'
-require_relative 'bout/objects/rectangle.rb'
-require_relative 'bout/objects/rectangle_vectors.rb'
+require_relative 'whack/runners/gosu.rb'
+require_relative 'whack/objects/rectangle.rb'
+require_relative 'whack/objects/rectangle_vectors.rb'
 
-class Bout
-  def initialize(game_klass, runner_klass = Bout::Runners::Gosu)
+class Whack
+  def initialize(game_klass, runner_klass = Whack::Runners::Gosu)
     @game_klass = game_klass
     @runner_klass = runner_klass
   end
@@ -31,7 +31,7 @@ class Bout
 
   def base_env
     {
-      environment: Bout.env,
+      environment: Whack.env,
       window: {
         width: 1920,
         height: 1080
@@ -46,6 +46,6 @@ end
 
 def run(game)
   # todo config, etc.
-  bout = Bout.new(game)
-  bout.run
+  whack = Whack.new(game)
+  whack.run
 end

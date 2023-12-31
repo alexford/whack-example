@@ -4,8 +4,8 @@
 require 'gosu'
 require_relative './base.rb'
 
-class Bout
-  class Runners::Gosu < Bout::Runners::Base
+class Whack
+  class Runners::Gosu < Whack::Runners::Base
     def run
       super
       window.show

@@ -1,6 +1,6 @@
 require_relative '../runner_helpers.rb'
 
-class Bout
+class Whack
   class Runners::Base
     include RunnerHelpers
 
