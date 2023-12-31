@@ -4,7 +4,7 @@
 require 'gosu'
 require_relative './base.rb'
 
-class Whack
+module Whack
   class Runners::Gosu < Whack::Runners::Base
     def run
       super

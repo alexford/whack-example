@@ -3,7 +3,7 @@
 
 require 'ruby2d'
 
-class Whack
+module Whack
   class Runners::Ruby2dParallel
     MAX_UPS = 120.0 # TODO: config
 

@@ -3,7 +3,7 @@
 
 require 'ruby2d'
 
-class Whack
+module Whack
   class Runners::Ruby2d
 
     def initialize(game, base_env = {})

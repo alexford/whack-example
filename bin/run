@@ -1,16 +1,14 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-RubyVM::YJIT.enable
-
-#require 'ruby2d'
 require 'pry'
 require 'stackprof'
 
 # TODO: better require'ing
-require_relative '../game.rb'
 require_relative '../lib/whack.rb'
 
-#StackProf.run(mode: :cpu, raw: true, out: 'tmp/stackprof.dump') do
-  run Game
-#end
+server = Whack::Server.new(Whack::Builder.parse_file('config.wu'))
+
+RubyVM::YJIT.enable
+
+server.run

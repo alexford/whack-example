@@ -1,6 +1,6 @@
 require_relative './base.rb'
 
-class Whack
+module Whack
   class Objects::Rectangle < Whack::Objects::Base
     attr_accessor :x, :y, :w, :h
 

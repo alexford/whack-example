@@ -1,6 +1,6 @@
 require_relative './rectangle.rb'
 
-class Whack
+module Whack
   class Objects::RectangleVectors < Whack::Objects::Rectangle
 
     def initialize(*args)
