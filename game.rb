@@ -1,4 +1,5 @@
 require_relative './game/star'
+require 'pry'
 
 class Game
   def self.call(env)

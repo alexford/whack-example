@@ -19,6 +19,7 @@ class Game
         @size = [@size - remaining_lifetime, 0].max
       end
 
+      # Just some swirly movement
       @x += 1
       @y += 1
 
@@ -43,7 +44,16 @@ class Game
     end
 
     def draw
-      Whack::Objects::RectangleVectors.new(@x, @y, @size, @size).draw
+      rectangle.x = @x
+      rectangle.y = @y
+      rectangle.w = rectangle.h = @size
+      rectangle.draw
+    end
+
+    private
+
+    def rectangle
+      @rectangle ||= Whack::Objects::RectangleVectors.new(@x, @y, @size, @size)
     end
   end
 end
