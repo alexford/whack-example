@@ -10,12 +10,15 @@ class Game
   def initialize(env)
     @counter = 0
     @last_updated = 0
-    @objects = Array.new(1_000).map! { new_star(env) }
+    @objects = Array.new(2_000).map! { new_star(env) }
   end
 
   def new_star(env)
-    size = rand(5) + 1
-    Star.new(rand(env[:window][:width]), rand(env[:window][:height]), size)
+    size = Whack::Backend.random(0,5).floor + 1
+    x = Whack::Backend.random(0,env[:window][:width]).floor
+    y = Whack::Backend.random(0,env[:window][:height]).floor
+
+    Star.new(x, y, size)
   end
 
   def name
